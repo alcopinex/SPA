@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wordly Dictionary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Wordly</h1>
+    <button id="theme-toggle" type="button" aria-label="Switch between light and dark theme">Dark mode</button>
+  </header>
+
+  <main>
+    <form id="search-form" role="search" aria-label="Dictionary search">
+      <label for="word-input" class="sr-only">Word to look up</label>
+      <input id="word-input" type="text" placeholder="Look up a word, e.g. serendipity" autocomplete="off" aria-describedby="form-msg">
+      <button type="submit">Search</button>
+    </form>
+    <p id="form-msg" class="form-msg" role="alert"></p>
+
+    <section id="status" aria-live="polite"></section>
+
+    <article id="result" class="result" hidden>
+      <div class="word-row">
+        <h2 id="word-title"></h2>
+        <button id="save-btn" type="button" aria-pressed="false">Save word</button>
+      </div>
+      <div class="pron-row">
+        <span id="phonetic"></span>
+        <button id="audio-btn" type="button" aria-label="Play pronunciation" hidden>Play audio</button>
+        <audio id="audio-player"></audio>
+      </div>
+      <div id="meanings"></div>
+      <p id="source" class="source"></p>
+    </article>
+
+    <section class="saved" aria-labelledby="saved-heading">
+      <h3 id="saved-heading">Saved words</h3>
+      <ul id="saved-list"></ul>
+      <p id="saved-empty" class="muted">No saved words yet. Search for a word and select Save word.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
